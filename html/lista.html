@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+  <title> Lista de Oficinas </title>
+  <meta charset = "utf-8">
+</head>
+<body>
+  <script>
+    function submeter(){
+      var table = document.getElementById("listafuncionarios");
+      var reg = table.insertRow(table.rows.lenght);
+      reg.insertCell(0).innerHTML = document.getElementById("foto").value;
+      reg.insertCell(1).innerHTML = document.getElementById("nome").value;
+      reg.insertCell(2).innerHTML = document.getElementById("cargo").value;
+      var btn = document.createElement("INPUT");
+      btn.setAttribute("type","button");
+      btn.setAttribute("value", "Deletar");
+      btn.setAttribute("onclick","deletar(this)");
+      reg.appendChild(btn);
+    }
+
+    function deletar(a){
+      var tr = a.parentNode;
+      var tb = tr.parentNode;
+      tb.removeChild(tr);
+    }
+  </script>
+  <h1> Equipe CCD </h1>
+  <table id = "listafuncionarios">
+    <div id="cabecalho">
+      <tr>
+        <th> Foto </th>
+        <th> Nome </th>
+        <th> Cargo </th>
+      </tr>
+    </div>
+  </table>
+<br> <br>
+<div id = "conteineformulario">
+  <form id="formulario">
+      Foto:<br>
+      <input type="text" name = "Foto" id = "foto"> </input>
+      <br>
+      Nome:<br>
+      <input type="text" name = "Nome" id = "nome"> </input>
+      <br>
+      Cargo: <br>
+      <input type="text" name = "Cargo" id = "cargo"> </input>
+      <br><br>
+  </form>
+</div>
+<button type="button" id= "submeter" onclick="submeter()"> Submeter </button>
+</body>
+</html>
